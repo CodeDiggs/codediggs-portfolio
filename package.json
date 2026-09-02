@@ -1,7 +1,7 @@
 {
   "name": "codediggs-portfolio",
   "version": "1.0.0",
-  "homepage": "https://codediggs.github.io/codediggs-portfolio",
+  "homepage": "https://codediggs.com",
   "private": true,
   "type": "module",
   "scripts": {
