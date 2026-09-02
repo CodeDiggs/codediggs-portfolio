@@ -5,8 +5,8 @@
 /* optional global styles */
 body {
   @apply bg-slate-950 text-slate-100 font-sans;
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
 }
-
