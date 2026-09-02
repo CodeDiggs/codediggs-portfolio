@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import profilePhoto from './assets/profile_photo.jpg'
-import { skillGroups, softwareExperience } from './data/resume'
+import { professionalExperience, skillGroups } from './data/resume'
 
 type GitHubProject = {
   name: string
@@ -298,11 +298,11 @@ export default function App() {
 
         <section id="experience" className="mx-auto max-w-5xl scroll-mt-24 px-6 py-20">
           <h2 className="mb-8 text-center text-3xl font-semibold text-cyan-400">
-            Software Experience
+            Professional Experience
           </h2>
 
           <div className="space-y-6">
-            {softwareExperience.map((experience) => (
+            {professionalExperience.map((experience) => (
               <article
                 key={`${experience.company}-${experience.role}`}
                 className="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg shadow-slate-950/30"
