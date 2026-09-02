@@ -11,7 +11,7 @@ type GitHubProject = {
   fork: boolean
 }
 
-const githubProfile = 'https://github.com/diggty66'
+const githubProfile = 'https://github.com/CodeDiggs'
 const repositoriesUrl = `${githubProfile}?tab=repositories`
 
 const fallbackProjects: GitHubProject[] = [
@@ -128,7 +128,7 @@ export default function App() {
   useEffect(() => {
     const controller = new AbortController()
 
-    fetch('https://api.github.com/users/diggty66/repos?per_page=100&sort=updated', {
+    fetch('https://api.github.com/users/CodeDiggs/repos?per_page=100&sort=updated', {
       signal: controller.signal,
     })
       .then((response) => {
@@ -137,7 +137,7 @@ export default function App() {
       })
       .then((repositories) => {
         const publicProjects = repositories.filter(
-          (repository) => repository.name !== 'diggty66',
+          (repository) => repository.name.toLowerCase() !== 'codediggs',
         )
 
         if (publicProjects.length > 0) setProjects(publicProjects)
