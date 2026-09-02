@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import profilePhoto from './assets/profile_photo.jpg'
+import { skillGroups, softwareExperience } from './data/resume'
 
 type GitHubProject = {
   name: string
@@ -110,7 +111,8 @@ const fallbackProjects: GitHubProject[] = [
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Résumé', href: '#resume' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -294,34 +296,35 @@ export default function App() {
           </div>
         </section>
 
-        <section id="resume" className="mx-auto max-w-5xl scroll-mt-24 px-6 py-20">
+        <section id="experience" className="mx-auto max-w-5xl scroll-mt-24 px-6 py-20">
           <h2 className="mb-8 text-center text-3xl font-semibold text-cyan-400">
-            Résumé &amp; Experience
+            Software Experience
           </h2>
 
-          <div className="space-y-8 text-slate-300">
-            <div>
-              <h3 className="text-xl font-semibold text-cyan-300">Software Engineer / Full Stack Developer</h3>
-              <p className="text-sm text-slate-400">CodeDiggs • 2023 – Present</p>
-              <p className="mt-2 leading-relaxed">
-                Designing and deploying full-stack applications using React, Flask, and Django.
-                Experience with DevOps pipelines, GitHub Actions, and cloud deployment via Render and Linode.
-              </p>
-            </div>
+          <div className="space-y-6">
+            {softwareExperience.map((experience) => (
+              <article
+                key={`${experience.company}-${experience.role}`}
+                className="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg shadow-slate-950/30"
+              >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-cyan-300">{experience.role}</h3>
+                    <p className="mt-1 font-medium text-slate-200">{experience.company}</p>
+                    <p className="text-sm text-slate-400">{experience.location}</p>
+                  </div>
+                  <p className="shrink-0 text-sm font-medium text-cyan-400">{experience.dates}</p>
+                </div>
 
-            <div>
-              <h3 className="text-xl font-semibold text-cyan-300">Automotive Diagnostics Specialist</h3>
-              <p className="text-sm text-slate-400">Auto Diagnostic Services LLC • 2011 – 2012</p>
-              <p className="mt-2 leading-relaxed">
-                Performed advanced diagnostics, CAN-bus communication analysis, and repair for VW/Audi systems.
-                ASE-certified technician with emphasis on electrical and engine control troubleshooting.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-cyan-300">Education</h3>
-              <p className="text-sm text-slate-400">B.S. Computer and Informatics Engineering • Magna Cum Laude</p>
-            </div>
+                <ul className="mt-5 space-y-2 pl-5 text-slate-300">
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight} className="list-disc leading-relaxed marker:text-cyan-400">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
 
           <div className="mt-10 text-center">
@@ -336,7 +339,34 @@ export default function App() {
           </div>
         </section>
 
-        <section id="contact" className="scroll-mt-24 bg-slate-900 px-6 py-20 text-center">
+        <section id="skills" className="scroll-mt-24 bg-slate-900 px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-10 text-center text-3xl font-semibold text-cyan-400">Skills</h2>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {skillGroups.map((group) => (
+                <article
+                  key={group.category}
+                  className="rounded-xl border border-slate-700 bg-slate-950/60 p-6"
+                >
+                  <h3 className="text-lg font-semibold text-cyan-300">{group.category}</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm text-slate-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="scroll-mt-24 px-6 py-20 text-center">
           <h2 className="mb-6 text-3xl font-semibold text-cyan-400">Contact</h2>
           <p className="text-lg text-slate-300">
             Reach out at{' '}
