@@ -14,7 +14,18 @@ export type SkillGroup = {
 // This is the website's single source of truth for résumé content.
 // Update these entries whenever the résumé changes; the Experience and Skills
 // sections are rendered directly from this file.
-export const softwareExperience: ExperienceEntry[] = [
+export const professionalExperience: ExperienceEntry[] = [
+  {
+    role: 'Automotive Instructor',
+    company: 'Universal Technical Institute',
+    location: 'Bloomfield, NJ',
+    dates: 'Dec 2025 – Present',
+    highlights: [
+      'Deliver classroom and hands-on lab instruction in automotive diagnostics, electrical systems, fuel systems, drivability, and professional shop practices.',
+      'Manage classroom/lab activities, student groups, safety, attendance, assessments, and differentiated instruction across multiple workstations.',
+      'Use Blackboard to organize coursework, assignments, grades, feedback, and student progress while coaching diagnostic strategy, documentation, and professional communication.',
+    ],
+  },
   {
     role: 'Software Engineer',
     company: 'Innovative Defense Technologies',
@@ -73,7 +84,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: 'Tools',
-    skills: ['Git', 'GitHub Actions', 'Jira', 'Confluence'],
+    skills: ['Git', 'GitHub Actions', 'Jira', 'Confluence', 'Blackboard'],
   },
   {
     category: 'Platforms',
@@ -82,5 +93,18 @@ export const skillGroups: SkillGroup[] = [
   {
     category: 'AI Tools',
     skills: ['ChatGPT', 'Google Gemini', 'GitHub Copilot'],
+  },
+  {
+    category: 'Teaching',
+    skills: [
+      'Classroom/lab management',
+      'Curriculum delivery',
+      'Lesson planning',
+      'Student engagement',
+      'Assessment/grading',
+      'Coaching/mentoring',
+      'Safety',
+      'Differentiated instruction',
+    ],
   },
 ]
