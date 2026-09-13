@@ -11,8 +11,36 @@ type GitHubProject = {
   fork: boolean
 }
 
+type Publication = {
+  title: string
+  author: string
+  issued: string
+  version: string
+  resourceType: string
+  description: string
+  doi: string
+  url: string
+  tags: string[]
+}
+
 const githubProfile = 'https://github.com/CodeDiggs'
 const repositoriesUrl = `${githubProfile}?tab=repositories`
+
+const publications: Publication[] = [
+  {
+    title:
+      'Unified Quantum Consciousness Postulation (UQCP): A Field-Access Model of Consciousness, Microtubular Modulation, and Artificial Quantum Cognition',
+    author: 'John Giles',
+    issued: 'September 2026',
+    version: '1.0',
+    resourceType: 'Publication',
+    description:
+      'A falsifiable framework proposing consciousness as field access rather than local generation, with microtubules as candidate interface components and defined criteria for artificial quantum cognition.',
+    doi: '10.5281/zenodo.22738479',
+    url: 'https://zenodo.org/records/22738479',
+    tags: ['Consciousness', 'Quantum Biology', 'Microtubules', 'Artificial Intelligence'],
+  },
+]
 
 const fallbackProjects: GitHubProject[] = [
   {
@@ -111,6 +139,7 @@ const fallbackProjects: GitHubProject[] = [
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Publications', href: '#publications' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
@@ -293,6 +322,74 @@ export default function App() {
                 </div>
               </a>
             ))}
+          </div>
+        </section>
+
+        <section id="publications" className="scroll-mt-24 bg-slate-900 px-6 py-20">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-center text-3xl font-semibold text-cyan-400">Publications</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center leading-relaxed text-slate-400">
+              Independent research and formal technical writing published with permanent citations.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              {publications.map((publication) => (
+                <article
+                  key={publication.doi}
+                  className="rounded-xl border border-slate-700 bg-slate-950/70 p-6 shadow-lg shadow-slate-950/30 sm:p-8"
+                >
+                  <div className="flex flex-wrap gap-2 text-xs font-medium uppercase tracking-wide">
+                    <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-cyan-300">
+                      {publication.resourceType}
+                    </span>
+                    <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
+                      Open access
+                    </span>
+                    <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
+                      Version {publication.version}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-5 text-2xl font-semibold leading-snug text-cyan-300">
+                    {publication.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-400">
+                    {publication.author} · {publication.issued}
+                  </p>
+                  <p className="mt-5 leading-relaxed text-slate-300">{publication.description}</p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {publication.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <a
+                      href={publication.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit items-center gap-2 rounded-lg bg-cyan-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+                    >
+                      View Publication <span aria-hidden="true">↗</span>
+                    </a>
+                    <a
+                      href={`https://doi.org/${publication.doi}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="break-all font-mono text-sm text-cyan-400 transition hover:text-cyan-300"
+                    >
+                      DOI: {publication.doi}
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
