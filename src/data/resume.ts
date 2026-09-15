@@ -86,7 +86,7 @@ export const professionalExperience: ExperienceEntry[] = [
     dates: '2004 – 2019',
     highlights: [
       'Diagnosed and repaired electrical, drivability, engine-performance, fuel, brake, steering and suspension, and HVAC systems.',
-      'Specialized in Audi and Volkswagen vehicles beginning in 2013, including electrical and hybrid systems.',
+      'Specialized in European vehicles beginning in 2013, with particular experience in Audi and Volkswagen electrical and hybrid systems.',
       'Owned and operated Auto Diagnostic Services LLC in South Carolina from January 2011 through December 2012, managing diagnostics, repairs, customer relationships, estimates, and scheduling.',
     ],
   },
