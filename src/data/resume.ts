@@ -79,6 +79,17 @@ export const professionalExperience: ExperienceEntry[] = [
       'Collaborated with SCCM and EUS teams to improve asset tracking and deployment.',
     ],
   },
+  {
+    role: 'Automotive Technician & Diagnostic Specialist',
+    company: 'Dealership and Independent Automotive Service',
+    location: 'New Jersey',
+    dates: '2004 – 2019',
+    highlights: [
+      'Diagnosed and repaired electrical, drivability, engine-performance, fuel, brake, steering and suspension, and HVAC systems.',
+      'Specialized in Audi and Volkswagen vehicles beginning in 2013, including electrical and hybrid systems.',
+      'Operated Auto Diagnostic Services LLC from 2011 to 2012, managing diagnostics, repairs, customer relationships, estimates, and scheduling.',
+    ],
+  },
 ]
 
 export const education: EducationEntry[] = [
