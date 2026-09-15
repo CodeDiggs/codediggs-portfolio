@@ -513,7 +513,9 @@ export default function App() {
               {skillGroups.map((group) => (
                 <article
                   key={group.category}
-                  className="rounded-xl border border-slate-700 bg-slate-950/60 p-6"
+                  className={`rounded-xl border border-slate-700 bg-slate-950/60 p-6 ${
+                    group.category === 'Automotive' ? 'sm:col-span-2 lg:col-span-3' : ''
+                  }`}
                 >
                   <h3 className="text-lg font-semibold text-cyan-300">{group.category}</h3>
                   <div className="mt-4 flex flex-wrap gap-2">

@@ -117,6 +117,29 @@ export const militaryService: MilitaryServiceEntry[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
+    category: 'Automotive',
+    skills: [
+      'Advanced diagnostics',
+      'Electrical and electronic systems',
+      'Wiring diagnosis and repair',
+      'Hybrid vehicle systems',
+      'Engine performance',
+      'Drivability diagnostics',
+      'Fuel and ignition systems',
+      'Brake systems',
+      'Steering and suspension',
+      'Heating and air conditioning',
+      'Scan-tool diagnostics',
+      'Oscilloscope and waveform analysis',
+      'Compression testing',
+      'Fuel-injector testing',
+      'Residual fuel-pressure testing',
+      'Preventive maintenance',
+      'Shop safety and procedures',
+      'Automotive technical instruction',
+    ],
+  },
+  {
     category: 'Languages',
     skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C/C++', 'HTML/CSS', 'LaTeX'],
   },
