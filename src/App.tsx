@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import profilePhoto from './assets/profile_photo.jpg'
-import { professionalExperience, skillGroups } from './data/resume'
+import {
+  education,
+  militaryService,
+  professionalExperience,
+  skillGroups,
+} from './data/resume'
 
 type GitHubProject = {
   name: string
@@ -141,6 +146,8 @@ const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Publications', href: '#publications' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
+  { label: 'Military', href: '#military' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -196,7 +203,7 @@ export default function App() {
           </a>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <nav className="hidden items-center gap-5 text-slate-300 md:flex" aria-label="Primary navigation">
+            <nav className="hidden items-center gap-5 text-slate-300 lg:flex" aria-label="Primary navigation">
               {navItems.map((item) => (
                 <a key={item.href} href={item.href} className="transition hover:text-cyan-400">
                   {item.label}
@@ -212,7 +219,7 @@ export default function App() {
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-700 text-slate-200 transition hover:border-cyan-400 hover:text-cyan-400 md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-700 text-slate-200 transition hover:border-cyan-400 hover:text-cyan-400 lg:hidden"
               aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
@@ -229,7 +236,7 @@ export default function App() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className={`absolute right-4 top-full mt-2 w-56 rounded-xl border border-slate-700 bg-slate-900 p-2 shadow-2xl transition-all duration-200 md:hidden ${
+          className={`absolute right-4 top-full mt-2 w-56 rounded-xl border border-slate-700 bg-slate-900 p-2 shadow-2xl transition-all duration-200 lg:hidden ${
             menuOpen
               ? 'visible translate-y-0 opacity-100'
               : 'invisible -translate-y-2 opacity-0'
@@ -433,6 +440,68 @@ export default function App() {
             >
               View Résumé (PDF)
             </a>
+          </div>
+        </section>
+
+        <section id="education" className="scroll-mt-24 bg-slate-900 px-6 py-20">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="mb-10 text-center text-3xl font-semibold text-cyan-400">Education</h2>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {education.map((entry) => (
+                <article
+                  key={`${entry.institution}-${entry.credential}`}
+                  className="flex h-full flex-col rounded-xl border border-slate-700 bg-slate-950/60 p-6 shadow-lg shadow-slate-950/30"
+                >
+                  <p className="text-sm font-medium text-cyan-400">{entry.completed}</p>
+                  <h3 className="mt-3 text-xl font-semibold text-cyan-300">{entry.credential}</h3>
+                  <p className="mt-3 font-medium text-slate-200">{entry.institution}</p>
+                  <p className="text-sm text-slate-400">{entry.location}</p>
+
+                  {entry.details && (
+                    <ul className="mt-5 space-y-2 pl-5 text-slate-300">
+                      {entry.details.map((detail) => (
+                        <li key={detail} className="list-disc leading-relaxed marker:text-cyan-400">
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="military" className="mx-auto max-w-5xl scroll-mt-24 px-6 py-20">
+          <h2 className="mb-10 text-center text-3xl font-semibold text-cyan-400">
+            Military Service
+          </h2>
+
+          <div className="space-y-6">
+            {militaryService.map((service) => (
+              <article
+                key={`${service.organization}-${service.role}`}
+                className="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-lg shadow-slate-950/30"
+              >
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-cyan-300">{service.role}</h3>
+                    <p className="mt-1 font-medium text-slate-200">{service.organization}</p>
+                    <p className="text-sm text-slate-400">{service.location}</p>
+                  </div>
+                  <p className="shrink-0 text-sm font-medium text-cyan-400">{service.dates}</p>
+                </div>
+
+                <ul className="mt-5 space-y-2 pl-5 text-slate-300">
+                  {service.highlights.map((highlight) => (
+                    <li key={highlight} className="list-disc leading-relaxed marker:text-cyan-400">
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </section>
 
