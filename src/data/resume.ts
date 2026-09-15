@@ -87,19 +87,21 @@ export const education: EducationEntry[] = [
     institution: 'Rowan University',
     location: 'Glassboro, NJ',
     completed: 'January 2023',
-    details: ['Minor in Computer Science'],
+    details: ['Magna Cum Laude', 'GPA: 3.89', 'Minor in Computer Science'],
   },
   {
     credential: 'Associate of Science in Computer Science',
     institution: 'Brookdale Community College',
     location: 'Lincroft, NJ',
     completed: 'January 2021',
+    details: ['GPA: 3.2'],
   },
   {
     credential: 'Automotive Technician Certificate',
     institution: 'Lincoln Technical Institute',
     location: 'Union, NJ',
     completed: 'December 2005',
+    details: ['High Honors', 'GPA: 4.0'],
   },
 ]
 
