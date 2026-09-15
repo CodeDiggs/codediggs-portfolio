@@ -158,6 +158,20 @@ export const skillGroups: SkillGroup[] = [
     skills: ['ChatGPT', 'Google Gemini', 'GitHub Copilot'],
   },
   {
+    category: 'Additional Expertise',
+    skills: [
+      'Small-business ownership and operations',
+      'Customer relations and client communication',
+      'Estimating, scheduling, and workflow management',
+      'Construction, maintenance, and hands-on problem-solving',
+      'Tool and equipment operation',
+      'Food-service operations',
+      'Personal training, coaching, and motivation',
+      'Workplace safety and compliance',
+      'Team leadership and mentoring',
+    ],
+  },
+  {
     category: 'Automotive',
     skills: [
       'Advanced diagnostics',
