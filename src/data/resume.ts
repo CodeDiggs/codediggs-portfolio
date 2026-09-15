@@ -11,9 +11,25 @@ export type SkillGroup = {
   skills: string[]
 }
 
+export type EducationEntry = {
+  credential: string
+  institution: string
+  location: string
+  completed: string
+  details?: string[]
+}
+
+export type MilitaryServiceEntry = {
+  role: string
+  organization: string
+  location: string
+  dates: string
+  highlights: string[]
+}
+
 // This is the website's single source of truth for résumé content.
-// Update these entries whenever the résumé changes; the Experience and Skills
-// sections are rendered directly from this file.
+// Update these entries whenever the résumé changes; the Experience, Education,
+// Military Service, and Skills sections are rendered directly from this file.
 export const professionalExperience: ExperienceEntry[] = [
   {
     role: 'Automotive Instructor',
@@ -61,6 +77,40 @@ export const professionalExperience: ExperienceEntry[] = [
       'Imaged and deployed 170+ workstations across manufacturing and HQ sites.',
       'Analyzed encryption compliance and supported IT audit remediation efforts.',
       'Collaborated with SCCM and EUS teams to improve asset tracking and deployment.',
+    ],
+  },
+]
+
+export const education: EducationEntry[] = [
+  {
+    credential: 'Bachelor of Arts in Computing and Informatics',
+    institution: 'Rowan University',
+    location: 'Glassboro, NJ',
+    completed: 'January 2023',
+    details: ['Minor in Computer Science'],
+  },
+  {
+    credential: 'Associate of Science in Computer Science',
+    institution: 'Brookdale Community College',
+    location: 'Lincroft, NJ',
+    completed: 'January 2021',
+  },
+  {
+    credential: 'Automotive Technician Certificate',
+    institution: 'Lincoln Technical Institute',
+    location: 'Union, NJ',
+    completed: 'December 2005',
+  },
+]
+
+export const militaryService: MilitaryServiceEntry[] = [
+  {
+    role: 'Avionics Mechanic (68N10)',
+    organization: 'Army National Guard',
+    location: 'Ewing, NJ',
+    dates: 'June 1996 – 1999',
+    highlights: [
+      'Trained in and performed electrical wiring diagnosis and repair on helicopter systems.',
     ],
   },
 ]
