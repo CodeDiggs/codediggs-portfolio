@@ -16,6 +16,14 @@ type GitHubProject = {
   fork: boolean
 }
 
+type FeaturedProject = {
+  name: string
+  tagline: string
+  description: string
+  url: string
+  technologies: string[]
+}
+
 type Publication = {
   title: string
   author: string
@@ -30,6 +38,17 @@ type Publication = {
 
 const githubProfile = 'https://github.com/CodeDiggs'
 const repositoriesUrl = `${githubProfile}?tab=repositories`
+
+const featuredProjects: FeaturedProject[] = [
+  {
+    name: 'StatS',
+    tagline: 'A living character sheet for your real life',
+    description:
+      'A real-life RPG personal-development app that turns lived experience into a persistent character sheet, tracking skills, attributes, talents, goals, activities, evidence, and deterministic XP rather than relying on streaks.',
+    url: 'https://www.sagestatus.com/',
+    technologies: ['React Native', 'Expo', 'FastAPI', 'MongoDB', 'AI-assisted discovery'],
+  },
+]
 
 const publications: Publication[] = [
   {
@@ -294,8 +313,47 @@ export default function App() {
             </a>
           </div>
           <p className="mx-auto mb-10 max-w-2xl text-center text-slate-400">
-            Every public project currently available on my GitHub. Select a project to open its repository.
+            Featured live work, followed by every public project currently available on my GitHub.
           </p>
+
+          <div className="mb-10 space-y-6">
+            {featuredProjects.map((project) => (
+              <a
+                key={project.url}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-cyan-400/50 bg-gradient-to-br from-cyan-400/10 via-slate-900 to-slate-900 p-6 shadow-xl shadow-cyan-950/30 transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-cyan-950/50 focus:outline-none focus:ring-2 focus:ring-cyan-400 sm:p-8"
+              >
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="max-w-3xl">
+                    <span className="inline-flex rounded-full bg-cyan-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-300">
+                      Featured Live Project
+                    </span>
+                    <h3 className="mt-4 text-3xl font-semibold text-cyan-300 transition group-hover:text-cyan-200">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 text-lg font-medium text-slate-200">{project.tagline}</p>
+                    <p className="mt-4 leading-relaxed text-slate-400">{project.description}</p>
+                  </div>
+                  <span className="shrink-0 text-cyan-400 transition group-hover:text-cyan-300">
+                    Visit sagestatus.com <span aria-hidden="true">↗</span>
+                  </span>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-2 text-xs">
+                  {project.technologies.map((technology) => (
+                    <span
+                      key={technology}
+                      className="rounded-full border border-slate-700 bg-slate-950/70 px-3 py-1.5 text-slate-300"
+                    >
+                      {technology}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
