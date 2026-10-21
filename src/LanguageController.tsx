@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import LanguageMenu from './LanguageMenu'
 import {
   detectInitialLanguage,
@@ -164,6 +165,18 @@ const originalSiteUrl = (language: Language) => {
 export default function LanguageController() {
   const [language, setLanguage] = useState<Language>(detectInitialLanguage)
   const [preferredLanguage] = useState(getPreferredSupportedLanguage)
+  const [languageMenuHost, setLanguageMenuHost] = useState<HTMLElement | null>(null)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
+  useEffect(() => {
+    setLanguageMenuHost(document.getElementById('language-menu-root'))
+
+    const handleScroll = () => setShowBackToTop(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     if (!isGoogleTranslatedPage() && !isNativeLanguage(preferredLanguage)) {
@@ -239,5 +252,30 @@ export default function LanguageController() {
 
   const activeLanguage = getGoogleTranslatedTarget() ?? language
 
-  return <LanguageMenu language={activeLanguage} onChoose={chooseLanguage} />
+  const scrollToTop = () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
+  }
+
+  return (
+    <>
+      {languageMenuHost &&
+        createPortal(
+          <LanguageMenu language={activeLanguage} onChoose={chooseLanguage} />,
+          languageMenuHost,
+        )}
+
+      {showBackToTop && (
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label={language === 'vi' ? 'Về đầu trang' : 'Back to top'}
+          title={language === 'vi' ? 'Về đầu trang' : 'Back to top'}
+          className="fixed bottom-4 right-4 z-[80] inline-flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 bg-slate-900/95 text-2xl font-bold text-cyan-300 shadow-2xl backdrop-blur transition hover:border-cyan-400 hover:bg-slate-800 hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
+        >
+          <span aria-hidden="true">↑</span>
+        </button>
+      )}
+    </>
+  )
 }
