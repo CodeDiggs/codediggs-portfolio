@@ -54,7 +54,7 @@ export default function LanguageMenu({ language, onChoose }: LanguageMenuProps) 
   return (
     <div
       ref={containerRef}
-      className="fixed right-[8rem] top-3 z-[60] sm:right-[8.5rem] xl:right-[5.5rem]"
+      className="relative z-[60] shrink-0"
     >
       <button
         type="button"
