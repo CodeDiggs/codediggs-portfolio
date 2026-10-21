@@ -262,6 +262,8 @@ export default function App() {
               ))}
             </nav>
 
+            <div id="language-menu-root" className="flex shrink-0 items-center" />
+
             <img
               src={profilePhoto}
               alt="John portrait"
