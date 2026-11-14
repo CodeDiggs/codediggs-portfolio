@@ -564,21 +564,41 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: 'IT Support & Systems',
-    skills: [
-      'Workstation imaging and deployment',
-      'Application packaging and software deployment',
-      'Endpoint administration and asset tracking',
-      'Peripheral installation and support',
-      'Desktop and laptop diagnosis, repair, and hardware upgrades',
-      'Custom PC builds and hardware modifications',
-      'Operating-system and software installation, configuration, and permissions management',
-      'Residential network installation and upgrades',
-      'Wired and wireless network diagnosis, repair, and management',
-      'Linux server administration',
-      'Operating-system migrations',
-      'Dockerized environment administration and troubleshooting',
-      'Encryption compliance and IT audit remediation',
-      'Vulnerability scanning and secure deployment workflows',
+    subsections: [
+      {
+        title: 'Endpoint Support & Deployment',
+        skills: [
+          'Workstation imaging and deployment',
+          'Application packaging and software deployment',
+          'Endpoint administration and asset tracking',
+          'Peripheral installation and support',
+          'Operating-system and software installation, configuration, and permissions management',
+        ],
+      },
+      {
+        title: 'Hardware & Custom Builds',
+        skills: [
+          'Desktop and laptop diagnosis, repair, and hardware upgrades',
+          'Custom PC builds and hardware modifications',
+        ],
+      },
+      {
+        title: 'Networking',
+        skills: [
+          'Residential network installation and upgrades',
+          'Wired and wireless network diagnosis, repair, and management',
+        ],
+      },
+      {
+        title: 'Systems Administration & Security',
+        skills: [
+          'Linux server administration',
+          'Operating-system migrations',
+          'Dockerized environment administration and troubleshooting',
+          'Encryption compliance and IT audit remediation',
+          'Vulnerability scanning and secure deployment workflows',
+        ],
+      },
     ],
   },
   {
@@ -593,25 +613,45 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: 'Automotive',
-    skills: [
-      'Advanced diagnostics',
-      'Electrical and electronic systems',
-      'Wiring diagnosis and repair',
-      'Hybrid vehicle systems',
-      'Engine performance',
-      'Drivability diagnostics',
-      'Fuel and ignition systems',
-      'Brake systems',
-      'Steering and suspension',
-      'Heating and air conditioning',
-      'Scan-tool diagnostics',
-      'Oscilloscope and waveform analysis',
-      'Compression testing',
-      'Fuel-injector testing',
-      'Residual fuel-pressure testing',
-      'Preventive maintenance',
-      'Shop safety and procedures',
-      'Automotive technical instruction',
+    subsections: [
+      {
+        title: 'Diagnostics & Performance',
+        skills: [
+          'Advanced diagnostics',
+          'Engine performance',
+          'Drivability diagnostics',
+          'Fuel and ignition systems',
+          'Scan-tool diagnostics',
+          'Oscilloscope and waveform analysis',
+          'Compression testing',
+          'Fuel-injector testing',
+          'Residual fuel-pressure testing',
+        ],
+      },
+      {
+        title: 'Electrical & Emerging Systems',
+        skills: [
+          'Electrical and electronic systems',
+          'Wiring diagnosis and repair',
+          'Hybrid vehicle systems',
+        ],
+      },
+      {
+        title: 'Mechanical Systems & Service',
+        skills: [
+          'Brake systems',
+          'Steering and suspension',
+          'Heating and air conditioning',
+          'Preventive maintenance',
+        ],
+      },
+      {
+        title: 'Instruction & Shop Operations',
+        skills: [
+          'Shop safety and procedures',
+          'Automotive technical instruction',
+        ],
+      },
     ],
   },
   {

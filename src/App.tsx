@@ -41,6 +41,7 @@ type FeaturedProject = {
   tagline: string
   description: string
   url: string
+  displayUrl: string
   technologies: string[]
 }
 
@@ -66,7 +67,17 @@ const featuredProjects: FeaturedProject[] = [
     description:
       'A real-life RPG personal-development app that turns lived experience into a persistent character sheet, tracking skills, attributes, talents, goals, activities, evidence, and deterministic XP rather than relying on streaks.',
     url: 'https://www.sagestatus.com/',
+    displayUrl: 'sagestatus.com',
     technologies: ['React Native', 'Expo', 'FastAPI', 'MongoDB', 'AI-assisted discovery'],
+  },
+  {
+    name: 'Truth Tables Lab',
+    tagline: 'Follow the evidence. Explore the connections.',
+    description:
+      'A private AI-assisted research workspace for preserving conversations, questions, research, and evidence while coordinating ongoing evidence-led investigations and background research workflows.',
+    url: 'https://truthtableslab.com/',
+    displayUrl: 'truthtableslab.com',
+    technologies: ['AI-assisted research', 'Evidence tracking', 'Background workers', 'Private workspace'],
   },
 ]
 
@@ -162,7 +173,7 @@ const navItems: NavItem[] = [
     label: 'Projects',
     href: '#projects',
     children: [
-      { label: 'Featured Project', href: '#featured-projects' },
+      { label: 'Featured Projects', href: '#featured-projects' },
       { label: 'Selected Repositories', href: '#github-repositories' },
     ],
   },
@@ -409,7 +420,7 @@ export default function App() {
             Featured live work and a selection of software projects and experiments.
           </p>
 
-          <h3 id="featured-projects" className="mb-5 scroll-mt-24 text-xl font-semibold text-slate-200">Featured Project</h3>
+          <h3 id="featured-projects" className="mb-5 scroll-mt-24 text-xl font-semibold text-slate-200">Featured Projects</h3>
           <div className="mb-10 space-y-6">
             {featuredProjects.map((project) => (
               <a
@@ -431,7 +442,7 @@ export default function App() {
                     <p className="mt-4 leading-relaxed text-slate-400">{project.description}</p>
                   </div>
                   <span className="shrink-0 text-cyan-400 transition group-hover:text-cyan-300">
-                    Visit sagestatus.com <span aria-hidden="true">↗</span>
+                    Visit {project.displayUrl} <span aria-hidden="true">↗</span>
                   </span>
                 </div>
 
