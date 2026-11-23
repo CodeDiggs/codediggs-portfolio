@@ -61,9 +61,22 @@ const vietnamese: Record<string, string> = {
   'Independent research and formal technical writing published with permanent citations.':
     'Nghiên cứu độc lập và các bài viết kỹ thuật chính thức được xuất bản với trích dẫn vĩnh viễn.',
   Publication: 'Ấn phẩm',
+  'Scientific Preprint': 'Bản thảo khoa học',
   'Open access': 'Truy cập mở',
   Version: 'Phiên bản',
+  Publisher: 'Nhà xuất bản',
+  'Publication status': 'Trạng thái xuất bản',
+  'Preprint · Not peer reviewed': 'Bản thảo · Chưa được bình duyệt',
+  License: 'Giấy phép',
   'View Publication': 'Xem ấn phẩm',
+  'Read Publication': 'Đọc ấn phẩm',
+  'A retrospective scientific case study examining human-directed coordination of multiple AI research systems across a nine-paper scientific research program. It documents research organization, GitHub-based coordination, mathematical investigation, scientific criticism, source verification, and research provenance while distinguishing documented research activity from independently verified scientific findings. It does not claim that the underlying Postulations / Dynamic Door hypotheses have been experimentally proven.':
+    'Một nghiên cứu trường hợp khoa học hồi cứu về việc con người điều phối nhiều hệ thống AI trong một chương trình nghiên cứu gồm chín bài. Công trình ghi lại cách tổ chức nghiên cứu, phối hợp qua GitHub, khảo sát toán học, phản biện khoa học, xác minh nguồn và nguồn gốc nghiên cứu, đồng thời phân biệt hoạt động nghiên cứu có tài liệu chứng minh với các phát hiện khoa học đã được xác minh độc lập. Công trình không tuyên bố rằng các giả thuyết Postulations / Dynamic Door nền tảng đã được chứng minh bằng thực nghiệm.',
+  'Research Methodology': 'Phương pháp nghiên cứu',
+  'Human–AI Collaboration': 'Hợp tác người–AI',
+  'Multi-AI Coordination': 'Điều phối đa AI',
+  'Research Provenance': 'Nguồn gốc nghiên cứu',
+  'Scientific Criticism': 'Phản biện khoa học',
   'A speculative theoretical extension that makes microtubule excitation transport a conditional candidate local substrate within UQCP, separating physical transport, biological relevance, and non-local field claims into distinct evidentiary stages with explicit falsification gates.':
     'Một phần mở rộng lý thuyết mang tính giả thuyết, xem vận chuyển kích thích trong vi ống như một ứng viên cục bộ có điều kiện trong UQCP, đồng thời tách vận chuyển vật lý, ý nghĩa sinh học và các tuyên bố trường phi cục bộ thành các giai đoạn bằng chứng riêng biệt với tiêu chí bác bỏ rõ ràng.',
   'A theoretical framework and experimental program for testing axial excitation-energy transport, inter-tube hopping and crosstalk, fabrication preservation, and driven ELF modulation in microtubules, with explicit engineering thresholds and stop/falsification criteria.':
