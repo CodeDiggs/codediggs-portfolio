@@ -51,6 +51,9 @@ type Publication = {
   issued: string
   version: string
   resourceType: string
+  publisher?: string
+  license?: string
+  reviewStatus?: string
   description: string
   doi: string
   url: string
@@ -82,6 +85,28 @@ const featuredProjects: FeaturedProject[] = [
 ]
 
 const publications: Publication[] = [
+  {
+    title:
+      'Human-Initiated Multi-AI Research Coordination in the Postulations Project: A Retrospective Case Study',
+    author: 'John L. Giles',
+    issued: 'November 23, 2026',
+    version: '1.0',
+    resourceType: 'Scientific Preprint',
+    publisher: 'Zenodo',
+    license: 'Creative Commons Attribution 4.0 International (CC BY 4.0)',
+    reviewStatus: 'Preprint · Not peer reviewed',
+    description:
+      'A retrospective scientific case study examining human-directed coordination of multiple AI research systems across a nine-paper scientific research program. It documents research organization, GitHub-based coordination, mathematical investigation, scientific criticism, source verification, and research provenance while distinguishing documented research activity from independently verified scientific findings. It does not claim that the underlying Postulations / Dynamic Door hypotheses have been experimentally proven.',
+    doi: '10.5281/zenodo.24464235',
+    url: 'https://doi.org/10.5281/zenodo.24464235',
+    tags: [
+      'Research Methodology',
+      'Human–AI Collaboration',
+      'Multi-AI Coordination',
+      'Research Provenance',
+      'Scientific Criticism',
+    ],
+  },
   {
     title:
       'Unified Quantum Consciousness Postulation: Conditional Physical-Mechanism Extension — Microtubule Excitation Transport as a Candidate Modulatory Substrate',
@@ -557,6 +582,28 @@ export default function App() {
                   <p className="mt-3 text-sm text-slate-400">
                     {publication.author} · {publication.issued}
                   </p>
+                  {(publication.publisher || publication.license || publication.reviewStatus) && (
+                    <dl className="mt-5 grid gap-3 rounded-lg border border-slate-800 bg-slate-900/70 p-4 text-sm sm:grid-cols-2">
+                      {publication.publisher && (
+                        <div>
+                          <dt className="font-medium text-slate-400">Publisher</dt>
+                          <dd className="mt-1 text-slate-200">{publication.publisher}</dd>
+                        </div>
+                      )}
+                      {publication.reviewStatus && (
+                        <div>
+                          <dt className="font-medium text-slate-400">Publication status</dt>
+                          <dd className="mt-1 text-slate-200">{publication.reviewStatus}</dd>
+                        </div>
+                      )}
+                      {publication.license && (
+                        <div className="sm:col-span-2">
+                          <dt className="font-medium text-slate-400">License</dt>
+                          <dd className="mt-1 text-slate-200">{publication.license}</dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
                   <p className="mt-5 leading-relaxed text-slate-300">{publication.description}</p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
@@ -577,7 +624,7 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="inline-flex w-fit items-center gap-2 rounded-lg bg-cyan-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
                     >
-                      View Publication <span aria-hidden="true">↗</span>
+                      Read Publication <span aria-hidden="true">↗</span>
                     </a>
                     <a
                       href={`https://doi.org/${publication.doi}`}
